@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Payment Page</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .header {
+            width: 100%;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .left-column,
+        .right-column {
+            flex: 1;
+            min-width: 280px;
+            padding: 20px;
+        }
+
+        .left-column {
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .secure-payment {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .secure-payment i {
+            margin-right: 10px;
+        }
+
+        .payment-icons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .payment-icons img {
+            height: 25px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .input-group input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .input-group.half {
+            flex: 1;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .order-summary {
+            width: 100%;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .order-summary h3 {
+            margin-top: 0;
+        }
+
+        .order-summary p {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .order-summary .total-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .subscribe-btn {
+            background: #333;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            align-self: center;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .subscribe-btn:hover {
+            background: #555;
+        }
+
+        .subscribe-btn i {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>PAYMENT PAGE</h1>
+        </div>
+        <div class="left-column">
+            <h2>Select Payment method</h2>
+            <div class="secure-payment">
+                <i class="fa fa-lock"></i>
+                <span>Secure Payment</span>
+            </div>
+            <div class="payment-icons">
+                <img src="/images/visa.jpg" alt="Visa">
+                <img src="/images/mastercard.png" alt="Mastercard">
+                <img src="/images/amex.png" alt="American Express">
+            </div>
+            <form action="subscribe_success.html" id="payment-form">
+                <div class="input-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" name="cardnumber" placeholder="Card Number" required>
+                </div>
+                <div class="input-row">
+                    <div class="input-group half">
+                        <label for="expiry-date">Expiry Date</label>
+                        <input type="text" id="expiry-date" name="expirydate" placeholder="MM/YY" required>
+                    </div>
+                    <div class="input-group half">
+                        <label for="cvv">CVC/CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="3 Digits" required>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="right-column">
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <p>Duration: 1 Month</p>
+                <p>From Jan 1, 2024 to Feb 1, 2024</p>
+                <p>Will be renewed on Feb 1, 2024</p>
+                <p>Recurring Price: $24.99</p>
+                <p>You can cancel anytime during the subscription</p>
+                <div class="total-price">Total Price: $24.99 (GST included)</div>
+            </div>
+            <button class="subscribe-btn" type="submit" form="payment-form">Subscribe <i class="fa fa-arrow-right"></i></button>
+        </div>
+    </div>
+</body>
+
+</html>

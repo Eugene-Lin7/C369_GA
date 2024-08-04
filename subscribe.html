@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Subscribe</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('/images/home_background.jpg') no-repeat center center/cover;
+            color: lightgrey;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .topnav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(to right, #13072E, #2A2463);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            height: 60px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .topnav a {
+            text-align: center;
+            padding: 15px 16px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: gold;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .topnav img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 75px 50px;
+            flex: 1;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .pricing-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+            margin: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1.5s ease-in-out;
+            text-align: center;
+        }
+
+        .pricing-container h2,
+        .pricing-container h3,
+        .pricing-container h4 {
+            color: gold;
+            margin: 10px 0;
+        }
+
+        .pricing-container h2 {
+            font-size: 24px;
+        }
+
+        .pricing-container h3 {
+            font-size: 36px;
+        }
+
+        .pricing-container h4 {
+            font-size: 18px;
+        }
+
+        .pricing-container .details {
+            font-size: 14px;
+            color: lightgrey;
+            margin-bottom: 20px;
+        }
+
+        .pricing-container .details p {
+            color: lightgrey;
+        }
+
+        .pricing-container ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .pricing-container ul li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .pricing-container ul li::before {
+            content: "\2713";
+            color: #4caf50;
+            margin-right: 10px;
+        }
+
+        .pricing-container .submit-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: gold;
+            color: #13072E;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pricing-container .submit-btn:hover {
+            background-color: #2A2463;
+            color: gold;
+        }
+
+        .pricing-container .submit-btn i {
+            margin-left: 10px;
+        }
+    </style>
+</head> 
+
+<body>
+    <div class="topnav">
+        <a class="active" href="home.html">
+            <img src="/images/logo.png" alt="Logo"> FINADVISOR
+        </a>
+    </div>
+    <div class="content">
+        <div class="pricing-container">
+            <h2>Join Us!</h2>
+            <h4>$24.99 per user/month billed yearly</h4>
+            <h3>$24.99</h3>
+            <div class="details">
+                <p>Lesser price than average</p>
+                <p>Advanced Analytics</p>
+                <p>Suitable for all income amount</p>
+                <p>24/7 Customer Service</p>
+            </div>
+            <button class="submit-btn" onclick="window.location.href='payment.html'">Join Now <i class="fa fa-arrow-right"></i></button>
+        </div>
+    </div>
+</body>
+
+</html>

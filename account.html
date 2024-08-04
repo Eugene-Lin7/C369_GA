@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Account Details</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .topnav {
+            width: 100%;
+            background: linear-gradient(to right, #13072E, #2A2463);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            height: 60px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .topnav a {
+            text-align: center;
+            padding: 15px 16px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: gold;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .topnav img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .topnav .button-container {
+            display: flex;
+        }
+
+        .topnav .button-container button {
+            border-radius: 20px;
+            padding: 8px 30px;
+            background-color: gold;
+            color: #13072E;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            margin-left: 10px;
+        }
+
+        .topnav .button-container button:hover {
+            color: gold;
+            background-color: #2A2463;
+        }
+
+        .main {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: linear-gradient(to bottom, #13072E, #2A2463);
+            display: flex;
+            flex-direction: column;
+            padding-top: 60px;
+            height: 100%;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .sidebar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: gold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #2A2463;
+            color: gold;
+        }
+
+        .sidebar a:not(:last-child) {
+            border-bottom: 1px solid #444;
+        }
+
+        .sidebar a + a {
+            margin-top: 10px;
+        }
+
+        .sidebar .transactions-link {
+            background: none;
+            color: gold;
+        }
+
+        .sidebar .account-link {
+            background-color: gold;
+            color: #13072E;
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+        }
+
+        .sidebar .account-link:hover {
+            background: #2A2463;
+            color: gold;
+        }
+
+        .divider-vertical {
+            width: 2.5px;
+            background-color: gold;
+            height: 100%;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            background: linear-gradient(to right, #13072E, #2A2463);
+            color: white;
+        }
+
+        .content-overlay {
+            color: white;
+            padding: 20px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .account-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: gold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .user-details {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            margin: auto;
+            color: lightgrey;
+        }
+
+        .user-details p {
+            font-size: 16px;
+            margin: 8px 0;
+            display: flex;
+            justify-content: space-between;
+            border: 2px solid #ffffff;
+            border-radius: 5px;
+            padding: 8px;
+        }
+
+        .user-details label {
+            font-weight: bold;
+        }
+
+        .user-details textarea,
+        .user-details input {
+            background: none;
+            border: none;
+            color: lightgrey;
+            font-size: 16px;
+            width: 100%;
+            resize: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .user-details textarea:focus,
+        .user-details input:focus {
+            outline: none;
+        }
+
+        .user-details button {
+            border-radius: 20px;
+            padding: 8px 30px;
+            background-color: gold;
+            color: #13072E;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .user-details button:hover {
+            color: gold;
+            background-color: #2A2463;
+        }
+
+        .footer {
+            background: linear-gradient(to left, #13072E, #2A2463);
+            color: gold;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .footer-divider {
+            width: 100%;
+            height: 2.5px;
+            background-color: gold;
+            position: absolute;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="active" href="home.html">
+            <img src="/images/logo.png" alt="Logo"> FINADVISOR
+        </a>
+        <div class="button-container">
+            <form action="logout.html" style="display: inline;">
+                <button type="submit">Logout <i class="fa fa-arrow-right"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <a href="wallet.html">WALLET</a>
+            <a href="transactions.html" class="transactions-link">TRANSACTIONS</a>
+            <a href="advisor.html">ADVISOR</a>
+            <a href="account.html" class="account-link">ACCOUNT</a>
+        </div>
+        <div class="divider-vertical"></div>
+        <div class="content">
+            <div class="account-title">Account Details</div>
+            <div class="content-overlay">
+                <div class="user-details">
+                    <form id="userForm">
+                        <p><label>First Name:</label> <span><input type="text" name="firstName" value="Eugene" readonly></span></p>
+                        <p><label>Last Name:</label> <span><input type="text" name="lastName" value="Lin" readonly></span></p>
+                        <p><label>Email:</label> <span><input type="text" name="email" value="23014305@myrp.edu.sg" readonly></span></p>
+                        <p><label>Date of Birth:</label> <span><input type="text" name="dob" value="24/01/2006" readonly></span></p>
+                        <p><label>Gender:</label> <span><input type="text" name="gender" value="Male" readonly></span></p>
+                        <p><label>Nationality:</label> <span><input type="text" name="nationality" value="Singaporean" readonly></span></p>
+                        <p><label>Address:</label> <span><textarea name="address" rows="3" readonly>72 Woodlands North Ave 7, The Coast, Singapore 785230</textarea></span></p>
+                        <button type="button" id="editButton">Edit Details</button>
+                        <button type="submit" id="saveButton" style="display:none;">Save Details</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-divider"></div>
+        <p>Privacy | T&C &copy; FINADVISOR Inc. All rights reserved.</p>
+    </div>
+
+    <script>
+        const editButton = document.getElementById('editButton');
+        const saveButton = document.getElementById('saveButton');
+        const inputs = document.querySelectorAll('.user-details input, .user-details textarea');
+
+        editButton.addEventListener('click', () => {
+            inputs.forEach(input => {
+                input.removeAttribute('readonly');
+            });
+            editButton.style.display = 'none';
+            saveButton.style.display = 'block';
+        });
+
+        document.getElementById('userForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            inputs.forEach(input => {
+                input.setAttribute('readonly', 'readonly');
+            });
+            editButton.style.display = 'block';
+            saveButton.style.display = 'none';
+            alert('Changes saved');
+        });
+    </script>
+</body>
+
+</html>

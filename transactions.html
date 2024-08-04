@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Transaction History</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .topnav {
+            width: 100%;
+            background: linear-gradient(to right, #13072E, #2A2463);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            height: 60px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .topnav a {
+            text-align: center;
+            padding: 15px 16px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            color: gold;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .topnav img {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .topnav .button-container {
+            display: flex;
+        }
+
+        .topnav .button-container button {
+            border-radius: 20px;
+            padding: 8px 30px;
+            background-color: gold;
+            color: #13072E;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            margin-left: 10px;
+        }
+
+        .topnav .button-container button:hover {
+            color: gold;
+            background-color: #2A2463;
+        }
+
+        .main {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: linear-gradient(to bottom, #13072E, #2A2463);
+            display: flex;
+            flex-direction: column;
+            padding-top: 60px;
+            height: 100%;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .sidebar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: gold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #2A2463;
+            color: gold;
+        }
+
+        .sidebar a:not(:last-child) {
+            border-bottom: 1px solid #444;
+        }
+
+        .sidebar a + a {
+            margin-top: 10px;
+        }
+
+        .sidebar .transactions-link {
+            background-color: gold;
+            color: #13072E;
+        }
+
+        .sidebar .account-link {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+        }
+
+        .divider-vertical {
+            width: 2.5px;
+            background-color: gold;
+            height: 100%;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            background: url('/images/transaction.jpg') no-repeat center center/cover;
+        }
+
+        .content-overlay {
+            background: rgba(0, 0, 0, 0.25);
+            color: white;
+            padding: 20px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .table-expense {
+            border: 3px solid #0076a3;
+            background-color: rgba(0, 0, 0, 0.75);
+        }
+
+        .table-expense th,
+        .table-expense td {
+            border: 3px solid #2A2463;
+            padding: 8px;
+        }
+
+        .table-expense th {
+            font-weight: bolder;
+            color: white;
+        }
+
+        .table-expense tbody {
+            font-weight: bold;
+        }
+
+        .footer {
+            background: linear-gradient(to left, #13072E, #2A2463);
+            color: gold;
+            text-align: center;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .footer-divider {
+            width: 100%;
+            height: 2.5px;
+            background-color: gold;
+            position: absolute;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav">
+        <a class="active" href="home.html">
+            <img src="/images/logo.png" alt="Logo"> FINADVISOR
+        </a>
+        <div class="button-container">
+            <form action="login.html" style="display: inline;">
+                <button type="submit">Logout <i class="fa fa-arrow-right"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <a href="wallet.html">WALLET</a>
+            <a href="transactions.html" class="transactions-link">TRANSACTIONS</a>
+            <a href="advisor.html">ADVISOR</a>
+            <a href="account.html" class="account-link">ACCOUNT</a>
+        </div>
+        <div class="divider-vertical"></div>
+        <div class="content">
+            <div class="content-overlay">
+                <h2 class="container text-center">Transaction History</h2>
+                <div class="container">
+                    <table class="table table-expense text-center">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>12 July, 2024</td>
+                                <td>Transfer</td>
+                                <td>$68.00</td>
+                                <td style="color: #50C878">Completed</td>
+                            </tr>
+                            <tr>
+                                <td>11 July, 2024</td>
+                                <td>Ikea</td>
+                                <td>$349.99</td>
+                                <td style="color: #FFD700">Pending</td>
+                            </tr>
+                            <tr>
+                                <td>10 July, 2024</td>
+                                <td>McDonald's</td>
+                                <td>$2.01</td>
+                                <td style="color: #50C878">Completed</td>
+                            </tr>
+                            <tr>
+                                <td>9 July, 2024</td>
+                                <td>Dyson</td>
+                                <td>$569.98</td>
+                                <td style="color: #50C878">Completed</td>
+                            </tr>
+                            <tr>
+                                <td>8 July, 2024</td>
+                                <td>Transfer</td>
+                                <td>$70.98</td>
+                                <td style="color: #50C878">Completed</td>
+                            </tr>
+                            <tr>
+                                <td>7 July, 2024</td>
+                                <td>KFC</td>
+                                <td>$42.63</td>
+                                <td style="color: #50C878">Completed</td>
+                            </tr>
+                            <tr>
+                                <td>6 July, 2024</td>
+                                <td>Transfer</td>
+                                <td>$20.98</td>
+                                <td style="color: #50C878">Completed</td>
+                            </tr>
+                            <tr>
+                                <td>5 July, 2024</td>
+                                <td>Transfer</td>
+                                <td>$45.80</td>
+                                <td style="color: #50C878">Completed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-divider"></div>
+        <p>Privacy | T&C &copy; FINADVISOR Inc. All rights reserved.</p>
+    </div>
+</body>
+
+</html>
